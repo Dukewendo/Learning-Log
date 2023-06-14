@@ -1,48 +1,33 @@
 # Learning Log
 
-### 13/6/23
+### 14/6/23
 
-### DOM interaction and Typecasting
+### Classes
 
-same usage as when we use JS but few key differences
+similar to classes is JS
 
-const anchor = document.querySelector('a')!;
+Blueprint for an object.
 
-The ! at the end indicating we KNOW it wont return null.
+class Invoice {
+  client: string;
+  details: string;
+  amount: number;
 
-const anchor = document.querySelector('a')!;
+  constructor(c: string, d: string, a: number) {
+      this.client = c;
+      this.details = d;
+      this.amount = a;
+  }
 
-// if(anchor) {
-//   console.log(anchor.href)
-// }
+  format() {
+    return `${this.client} owes £ ${this.amount} for ${this.details}`
+  }
+}
 
-//console.log(anchor.href)
+const invOne = new Invoice('Ted', 'work on website', 456);
+const invTwo = new Invoice('Terry', 'work on front driveway', 1356);
 
-//const form = document.querySelector('form')!;   //type form
+let invoices: Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
 
-//const form = document.querySelector('new-item-form')!;  //type element (class) NOT form
-
-// Use typecasting
-
-const form = document.querySelector('new-item-form') as HTMLFormElement; //typecast
-
-//console.log(form.children);
-
-const type = document.querySelector('#type') as HTMLSelectElement;    //by ID and typecast
-
-const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
-
-const details = document.querySelector('#details') as HTMLInputElement;
-
-const amount = document.querySelector('#amount') as HTMLInputElement;
-
-form.addEventListener('submit', (e: Event) => {
-  e.preventDefault();
-
-  console.log(
-    type.value,
-    tofrom.value,
-    details.value,
-    amount.valueAsNumber
-  );
-})
