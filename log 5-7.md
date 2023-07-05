@@ -20,16 +20,16 @@ that they are defined in, it normally really doesnt matter that there is closure
 
 
 
-
-`let scope = "global scope";
+`
+let scope = "global scope";
 function checkscope() {
   let scope ="local scope";
   function f() { return scope; }
-  console.log(`In here the scope is ${scope}`)
+  console.log(``In here the scope is ${scope}``)
 return f();
 }
 
 checkscope();
 
-console.log(`the scope out here is ${scope}`);`
+console.log(``the scope out here is ${scope}``);`
 
